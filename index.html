@@ -36,7 +36,7 @@
         width: 80%;
         max-width: 700px;
         padding: 40px;
-        border: 2px dashed #ff4c4c;
+        border: 2px dashed #4c64ff;
         border-radius: 10px;
         text-align: center;
         background: #111;
@@ -151,7 +151,7 @@
 </footer>
 
 <div id="community">
-    <h2>Join the community!</h2>
+    <h2>Join the ueph.ie community</h2>
     <a id="discord-link" href="https://discord.gg/EkZAH5Q3XH" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
         Discord
@@ -279,13 +279,13 @@ function analyzeFile(file, bytes) {
         <p><span class="label">.NET Detected:</span> ${isDotNet ? "Yes" : "No"}</p>
         <p><span class="label">Verdict:</span> <span class="${verdictClass}">${verdict}</span></p>
         <p><span class="label">Safety Level:</span> <span class="${verdictClass}">${safety}%</span></p>
-        <p><span class="label">Heuristic Flags:</span></p>
+        <p><span class="label">Flags:</span></p>
         <ul>
             ${reasons.length ? reasons.map(r => `<li>${r}</li>`).join("") : "<li>No obvious red flags</li>"}
         </ul>
 
         ${stringsFound.length ? `
-        <p class="label">Extracted C# Strings (dnSpy-style)</p>
+        <p class="label">Extracted C# Strings</p>
         <pre>${stringsFound.slice(0, 50).join("\n")}</pre>
         <p style="font-size:12px;color:#777;">Showing first 50 strings</p>
         ` : ""}
