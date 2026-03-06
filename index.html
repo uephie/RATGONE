@@ -133,7 +133,7 @@
 
 <div id="dropzone">
     <h2>Drag & Drop a file</h2>
-    <p>Supported formats: .exe, .dll, .ocx, .html, .app</p>
+    <p>Supported formats: .exe, .dll, .ocx, .html, .app, .sh, .rtf</p>
 </div>
 
 <div id="options">
@@ -189,11 +189,6 @@ function analyzeFile(file, bytes) {
     let suspicion = 0;
     let reasons = [];
     let stringsFound = [];
-
-    if (!name.endsWith(".exe") && !name.endsWith(".dll")) {
-        reasons.push("File is not EXE or DLL");
-        suspicion += 40;
-    }
 
     if (sizeMB < 0.2) {
         suspicion += 25;
