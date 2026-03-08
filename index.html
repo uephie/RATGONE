@@ -133,7 +133,7 @@
 
 <div id="dropzone">
     <h2>Drag & Drop a file</h2>
-    <p>Supported formats: .exe, .dll, .ocx, .html, .app, .sh, .rtf</p>
+    <p>Supported formats: .exe, .dll, .ocx, .html, .dmg, .app, .sh, .rtf</p>
 </div>
 
 <div id="options">
@@ -148,6 +148,7 @@
 <footer>
     BASE SCRIPT CREDIT GOES ENTIRELY TO SWIDGETSCRIPTS, I JUST MADE A FEW CHANGES, IMPROVED, AND ADDED EXTRA FILE SUPPORT. <br><br>
     ⚠ This website provides a heuristic analysis and is not a substitute for professional antivirus software. Always exercise caution when handling unknown files. ⚠
+    ⚠ Results are based on common indicators and may not be 100% accurate. Use at your own risk. ⚠ 
 </footer>
 
 <div id="community">
@@ -195,7 +196,7 @@ function analyzeFile(file, bytes) {
         reasons.push("Unusually small binary (possible loader/dropper)");
     }
 
-    if (sizeMB > 50) {
+    if (sizeMB > 75) {
         suspicion += 10;
         reasons.push("Very large binary (packed or bundled)");
     }
@@ -247,7 +248,44 @@ function analyzeFile(file, bytes) {
             "AES",
             "Base64",
             "Invoke",
-            "SendKeys"
+            "SendKeys",
+            "CreateProcess",
+            "VirtualAlloc",
+            "WriteProcessMemory",
+            "CreateRemoteThread",
+            "GetAsyncKeyState",
+            "GetKeyState",
+            "GetKeyboardState",
+            "GetForegroundWindow",
+            "GetWindowText",
+            "GetWindowThreadProcessId",
+            "OpenProcess",
+            "LoadLibrary",
+            "GetProcAddress",
+            "GetModuleHandle",
+            "GetIPAddress",
+            "GetHostEntry",
+            "Dns",
+            "TcpClient",
+            "UdpClient",
+            "NetworkStream",
+            "Process.Start",
+            "File.WriteAllBytes",
+            "File.WriteAllText",
+            "File.Create",
+            "File.Copy",
+            "File.Move",
+            "File.Delete",
+            "Directory.CreateDirectory",
+            "Directory.Delete",
+            "Directory.GetFiles",
+            "StartupPath",
+            "Application.ExecutablePath",
+            "macOSFinder",
+            "LinuxProcess",
+            "killall Finder",
+            "killall Dock",
+            "killall WindowServer",
         ];
 
         indicators.forEach(i => {
